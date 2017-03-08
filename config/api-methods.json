@@ -1,0 +1,53 @@
+{
+    "/api/": {
+        "verb": "GET",
+        "header_parameters": {
+          "api_op": "None"
+        },
+        "url_params": {
+            "param": "none"
+        },
+        "return_value": {
+            "type": "json",
+            "content": "Server status and version."
+        }
+    },
+    "/api/docs": {
+        "verb": "GET",
+        "header_parameters": {
+          "api_op": "None"
+        },
+        "url_params": {
+            "param": "none"
+        },
+        "return_value": {
+            "type": "json",
+            "content": "API Documentation."
+        }
+    },
+    "/token/": {
+        "verb": "POST",
+        "header_parameters": {
+            "api_op": "None"
+        },
+        "body_params": {
+            "type": "json",
+            "account_string": "string",
+            "token_type": "string"
+        },
+        "return_value": {
+            "type": "json",
+            "content": "Account name, account e-mail and access token."
+        }
+    },
+    "/token/": {
+        "verb": "GET",
+        "header_parameters": {
+            "api_op": "None"
+        },
+        "return_value": {
+            "type": "json",
+            "content": "List of registered Accounts."
+        }
+    }
+}

@@ -1,0 +1,8 @@
+[Unit]
+Description=Python Authenticator
+
+[Service]
+ExecStart=/usr/bin/env python /usr/local/bin/apiserver.py
+
+[Install]
+WantedBy=default.target

@@ -1,0 +1,7 @@
+{
+  "api": {
+    "/api/": "version:Version",
+    "/api/docs": "version:Docs",
+    "/token/": "token:Token"
+  }
+}

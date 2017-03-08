@@ -1,0 +1,16 @@
+{
+  "accounts": {
+    "Google - account1@example.com": {
+      "account": "account1.example.com",
+      "type": "totp",
+      "account_type": "google",
+      "shared_secret": "<shared secret here>"
+    },
+    "GitHub - account2@gmail.com": {
+      "account": "account2@gmail.com",
+      "type": "totp",
+      "account_type": "github",
+      "shared_secret": "<shared secret here>"
+    }
+  }
+}

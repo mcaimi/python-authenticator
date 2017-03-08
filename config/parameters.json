@@ -1,0 +1,11 @@
+{
+  "globals":{
+    "log_file": "/tmp/python-authenticator.log"
+  },
+  "apiserver": {
+    "proto": "http",
+    "listen_address": "127.0.0.1",
+    "listen_port": 5111,
+    "debug": "false"
+  }
+}
