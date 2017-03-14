@@ -7,6 +7,7 @@ The service is composed of:
 	 1. A RESTful user service that computes and returns tokens in JSON format.
 	 2. Client software (python cli, integration script with Rofi)
 	 3. An user unit for systemd
+   4. An extremely simple, almost primitive GTK3 Client
 
 Accounts are configured in the "accounts.json" file, and thy are organized in
 this format:
@@ -48,4 +49,9 @@ If you want to integrate with Rofi, you also need:
 
  - Rofi (of course)
  - xclip (to copy tokens into the clipboard)
+
+If you want to also run the simple GTK+3 client you need:
+
+ - Python GTK3 bindings
+ - Iosevka Term font (https://github.com/be5invis/iosevka)
 

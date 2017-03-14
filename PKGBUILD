@@ -37,9 +37,14 @@ package() {
   install -D -m0644 "$srcdir/$_gitpath/config/api-methods.json" "$pkgdir/etc/python-authenticator/api-methods.json"
   install -D -m0644 "$srcdir/$_gitpath/config/parameters.json" "$pkgdir/etc/python-authenticator/parameters.json"
   install -D -m0644 "$srcdir/$_gitpath/python-authenticator.service" "$pkgdir/usr/share/python-authenticator/systemd/python-authenticator.service"
+  install -D -m0644 "$srcdir/$_gitpath/assets/icons/default.png" "$pkgdir/usr/share/python-authenticator/assets/icons/default.png"
+  install -D -m0644 "$srcdir/$_gitpath/assets/icons/google.png" "$pkgdir/usr/share/python-authenticator/assets/icons/google.png"
+  install -D -m0644 "$srcdir/$_gitpath/assets/icons/github.png" "$pkgdir/usr/share/python-authenticator/assets/icons/github.png"
+  install -D -m0644 "$srcdir/$_gitpath/assets/icons/amazon.png" "$pkgdir/usr/share/python-authenticator/assets/icons/amazon.png"
 
   # install clients
   install -D -m0755 "$srcdir/$_gitpath/pytoken-rofi.py" "$pkgdir/usr/local/bin/pytoken-rofi.py"
+  install -D -m0755 "$srcdir/$_gitpath/pytoken-gui.py" "$pkgdir/usr/local/bin/pytoken-gui.py"
   install -D -m0755 "$srcdir/$_gitpath/totp.sh" "$pkgdir/usr/local/bin/totp.sh"
   install -D -m0755 "$srcdir/$_gitpath/run.sh" "$pkgdir/usr/local/bin/run.sh"
 }
