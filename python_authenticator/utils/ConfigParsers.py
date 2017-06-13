@@ -76,7 +76,7 @@ class ConfigParamsSingleton(ConfigParams):
 
     def __init__(self):
         if ConfigParamsSingleton.__instance is not None:
-            return ConfigParamsSingleton.__instance
+            raise RuntimeError("There can only be one instance of this class.")
 
         super().__init__()
 
@@ -89,7 +89,7 @@ class AccountsParamsSingleton(AccountParams):
 
     def __init__(self):
         if AccountsParamsSingleton.__instance is not None:
-            return AccountsParamsSingleton.__instance
+            raise RuntimeError("There can only be one instance of this class.")
 
         super().__init__()
 
