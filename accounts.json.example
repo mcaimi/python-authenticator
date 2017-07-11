@@ -2,15 +2,22 @@
   "accounts": {
     "Google - account1@example.com": {
       "account": "account1.example.com",
-      "type": "totp",
+      "type": "totp_google",
       "account_type": "google",
       "shared_secret": "<shared secret here>"
     },
     "GitHub - account2@gmail.com": {
       "account": "account2@gmail.com",
-      "type": "totp",
+      "type": "totp_google",
       "account_type": "github",
       "shared_secret": "<shared secret here>"
+    },
+    "Amazon - account3@gmail.com": {
+      "account": "account3@gmail.com",
+      "type": "totp",
+      "account_type": "amazon",
+      "shared_secret": "<shared secret here>"
     }
+
   }
 }

@@ -72,7 +72,18 @@ class Token(Resource):
                     # get key
                     key = account.shared_secret
                     # compute token
-                    token_code = totp.TOTP(key)
+                    token_code = totp.TOTP(key, encode_base32=False)
+                    TOKEN_RESPONSE_DICT['token'] = {
+                            'account_string': account_string,
+                            'account': account.account,
+                            'account_type': account.account_type,
+                            'token': token_code
+                            }
+                elif token_type=="totp_google":
+                    # get key
+                    key = account.shared_secret
+                    # compute token
+                    token_code = totp.TOTP(key) # base32 encoding is default
                     TOKEN_RESPONSE_DICT['token'] = {
                             'account_string': account_string,
                             'account': account.account,

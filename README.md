@@ -23,7 +23,7 @@ The first line is a string, this can be used to mnemonically identify the servic
 In the JSON body, a few parameters are needed:
 
   - "account": this is the account name (username, email, ecc)
-  - "type": The type of the token to be computed. Only TOTP is currently supported.
+  - "type": The type of the token to be computed. Only TOTP is currently supported. "totp" is standard RFC, "totp_google" is the google "base32 encoded" variant.
   - "account_type": this is used to display an icon in the GUI. I have icons for Google, GitHub and Amazon.
   - "shared_secret": The key that is given to the user by the service provider. KEEP IT SAFE.
 
