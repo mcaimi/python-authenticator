@@ -2,19 +2,25 @@
   "accounts": {
     "Google - account1@example.com": {
       "account": "account1.example.com",
-      "type": "totp_google",
+      "type": "totp",
+      "digest": "sha1",
+      "base32": true,
       "account_type": "google",
       "shared_secret": "<shared secret here>"
     },
     "GitHub - account2@gmail.com": {
       "account": "account2@gmail.com",
-      "type": "totp_google",
+      "type": "totp",
+      "base32": true,
       "account_type": "github",
+      "digest": "sha1",
       "shared_secret": "<shared secret here>"
     },
     "Amazon - account3@gmail.com": {
       "account": "account3@gmail.com",
       "type": "totp",
+      "base32": false,
+      "digest": "sha256",
       "account_type": "amazon",
       "shared_secret": "<shared secret here>"
     }

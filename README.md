@@ -15,6 +15,8 @@ this format:
     "Google - account1@example.com": {
       "account": "account1.example.com",
       "type": "totp",
+      "digest": "sha1",
+      "base32": true,
       "account_type": "google",
       "shared_secret": "<shared secret here>"
     }
@@ -23,8 +25,10 @@ The first line is a string, this can be used to mnemonically identify the servic
 In the JSON body, a few parameters are needed:
 
   - "account": this is the account name (username, email, ecc)
-  - "type": The type of the token to be computed. Only TOTP is currently supported. "totp" is standard RFC, "totp_google" is the google "base32 encoded" variant.
-  - "account_type": this is used to display an icon in the GUI. I have icons for Google, GitHub and Amazon.
+  - "type": The type of the token to be computed. Only TOTP is currently supported. 
+  - "account_type": this is used to display an icon in the GUI. I have provided icons for Google, GitHub and Amazon. 
+  - "digest": Hash algorithm to use during HMAC computation. Accepted values are "sha1", "sha256", "sha512".
+  - "base32": Boolean value that determines whether the TOTP value is to be computed with a base32 encoded secret (Google and GitHub for example)
   - "shared_secret": The key that is given to the user by the service provider. KEEP IT SAFE.
 
 The service, as of now, can be run only as a user service inside systemd and it does not support multiple user configurations. You can, however, launch multiple instances of the apiserver, one per user.
