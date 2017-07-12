@@ -8,6 +8,7 @@
 #
 
 from datetime import datetime
+import hashlib
 from time import time
 import logging
 from flask_restful import Resource
@@ -15,6 +16,12 @@ from flask import request
 from python_authenticator.api.constants import API_DESCRIPTION, API_VENDOR, API_VERSION, API_ENDPOINT
 from python_authenticator.api.status import HTTP_200_OK,HTTP_400_BAD_REQUEST
 from python_authenticator import account_params_singleton
+
+SUPPORTED_CIPHERS = {
+            "sha1": hashlib.sha1,
+            "sha256": hashlib.sha256,
+            "sha512": hashlib.sha512
+        }
 
 # import OTP library
 import base64
@@ -71,11 +78,12 @@ class Token(Resource):
                 if token_type == "totp":
                     # get key
                     key = account.shared_secret
-                    # compute token
-                    if account.account_type == "google":
-                        token_code = totp.TOTP(key, encode_base32=True)
-                    else:
-                        token_code = totp.TOTP(key, encode_base32=False)
+                    try:
+                        digest_algo = SUPPORTED_CIPHERS.get(account.digest)
+                        # compute token
+                        token_code = totp.TOTP(key, digest=digest_algo, encode_base32=account.base32)
+                    except KeyError as e:
+                        token_code = 0
 
                     TOKEN_RESPONSE_DICT['token'] = {
                             'account_string': account_string,
