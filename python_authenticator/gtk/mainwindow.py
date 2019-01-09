@@ -79,7 +79,7 @@ class TOTPMainWin(Gtk.Window):
         wBox.add(self.progBar)
 
         # Text Area
-        self.token_labels = [TokenElement() for x in range(0, len(self.tokenResults))]
+        self.token_labels = [TokenElement(current_totp) for current_totp in self.tokenResults]
         for label in self.token_labels:
             wBox.pack_start(label, True, True, 0)
         self.__update_label_text()

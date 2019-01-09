@@ -1,6 +1,8 @@
 {
   "globals":{
-    "log_file": "/tmp/python-authenticator.log"
+    "log_file": "/tmp/python-authenticator.log",
+    "digits": 6,
+    "period": 60
   },
   "apiserver": {
     "proto": "http",

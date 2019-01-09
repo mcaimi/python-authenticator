@@ -1,7 +1,7 @@
 #!/bin/bash
 
 function _rofi {
-    rofi -tokenize -no-levenshtein-search -dmenu "$@" -p "token >"
+    rofi -l 15 -tokenize -no-levenshtein-search -dmenu "$@" -p "token >"
 }
 
 ROFI_MENU_CONTENTS="---\n"

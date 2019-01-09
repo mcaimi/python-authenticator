@@ -16,6 +16,7 @@ from flask import request
 from python_authenticator.api.constants import API_DESCRIPTION, API_VENDOR, API_VERSION, API_ENDPOINT
 from python_authenticator.api.status import HTTP_200_OK,HTTP_400_BAD_REQUEST
 from python_authenticator import account_params_singleton
+from python_authenticator import config_params
 
 SUPPORTED_CIPHERS = {
             "sha1": hashlib.sha1,
@@ -81,6 +82,7 @@ class Token(Resource):
                     try:
                         digest_algo = SUPPORTED_CIPHERS.get(account.digest)
                         # compute token
+                        print(key)
                         token_code = totp.TOTP(key, digest=digest_algo, encode_base32=account.base32)
                     except KeyError as e:
                         token_code = 0
@@ -89,7 +91,9 @@ class Token(Resource):
                             'account_string': account_string,
                             'account': account.account,
                             'account_type': account.account_type,
+                            'issuer': account.issuer,
                             'token': token_code
+                            'provisioning_uri': totp.build_uri(key, account.account, account.issuer, account.digest, digits=config_params.globals.digits, period=config_params.globals.period)
                             }
                 else:
                     return {'Token type [%s] is currently not supported.' & token_type}, HTTP_400_BAD_REQUEST

@@ -13,7 +13,12 @@ except ImportError as e:
     print("PTOKEN-GTK3, Error importing module [%s]" % e)
     sys.exit(-1)
 
-from python_authenticator.gtk.mainwindow import TOTPMainWin
+# try to load the main window class
+try:
+    from python_authenticator.gtk.mainwindow import TOTPMainWin
+except ImportError as e:
+    print("PYTOKEN-GTK3: Cannot import MainWindow Class")
+    sys.exit(-1)
 
 # INSTANTIATE MAIN CLASS
 mWin = TOTPMainWin(window_title="PyTOTP")
