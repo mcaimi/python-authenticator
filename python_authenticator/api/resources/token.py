@@ -82,7 +82,6 @@ class Token(Resource):
                     try:
                         digest_algo = SUPPORTED_CIPHERS.get(account.digest)
                         # compute token
-                        print(key)
                         token_code = totp.TOTP(key, digest=digest_algo, encode_base32=account.base32)
                     except KeyError as e:
                         token_code = 0
