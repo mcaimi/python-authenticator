@@ -91,7 +91,7 @@ class Token(Resource):
                             'account': account.account,
                             'account_type': account.account_type,
                             'issuer': account.issuer,
-                            'token': token_code
+                            'token': token_code,
                             'provisioning_uri': totp.build_uri(key, account.account, account.issuer, account.digest, digits=config_params.globals.digits, period=config_params.globals.period)
                             }
                 else:
