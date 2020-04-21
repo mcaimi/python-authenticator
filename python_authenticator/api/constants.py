@@ -1,11 +1,11 @@
 #!/usr/bin/env python
 #
 #   Global repository for constants used across the API server
-#   v0.1 -- Marco Caimi <marco.caimi@fastweb.it>
+#   v0.1 -- Marco Caimi <mcaimi@redhat.com>
 #
 
 API_VERSION = "0.1"
-API_VENDOR = "Fastweb S.p.A."
+API_VENDOR = "RedHat"
 API_DESCRIPTION = "TOTP/HOTP Authenticator"
 ENDPOINT = "localhost"
 PORT=5100

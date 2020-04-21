@@ -2,7 +2,7 @@
 #
 # Python common utils for dealing with configuration files
 #
-# v0.1 - Initial implementation - Marco Caimi <marco.caimi@fastweb.it>
+# v0.1 - Initial implementation - Marco Caimi <mcaimi@redhat.com>
 #
 
 from os import _Environ

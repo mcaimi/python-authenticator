@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 #
 #  Configuration Parsing Metaclass.
-#  v0.1 -- Caimi Marco <marco.caimi@fastweb.it
+#  v0.1 -- Caimi Marco <mcaimi@redhat.com>
 #
 
 from os import path, environ

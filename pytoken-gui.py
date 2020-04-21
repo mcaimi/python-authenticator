@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 #
 #   Python TOTP Token Generator, GUI
-#   v0.1 - Marco Caimi <marco.caimi@fastweb.it>
+#   v0.1 - Marco Caimi <mcaimi@redhat.com>
 #
 # global imports
 import sys

@@ -2,7 +2,7 @@
 #
 #   Python TOTP Token Generator API Server
 #
-#   v0.1 -- -Caimi Marco <marco.caimi@fastweb.it> -- Initial Implementation
+#   v0.1 -- -Caimi Marco <mcaimi@redhat.com> -- Initial Implementation
 #
 
 import sys

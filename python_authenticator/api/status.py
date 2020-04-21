@@ -2,7 +2,7 @@
 # TOTP authenticator API server
 # HTTP Status codes
 #
-# v0.1 -- Marco Caimi <marco.caimi@fastweb.it>
+# v0.1 -- Marco Caimi <mcaimi@redhat.com>
 #
 
 # HTTP Status Codes

@@ -1,6 +1,6 @@
 #
 #   Base library configuration file
-#   v0.1 -- Marco Caimi <marco.caimi@fastweb.it>
+#   v0.1 -- Marco Caimi <mcaimi@redhat.com>
 #
 
 import sys

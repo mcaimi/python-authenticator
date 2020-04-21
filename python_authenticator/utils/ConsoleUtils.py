@@ -3,7 +3,7 @@
 # Various utilities to ease dealing with console output
 # from colored text to formatting to everything else
 #
-# v0.1 -- Initial Implementation -- <marco.caimi@fastweb.it>
+# v0.1 -- Initial Implementation -- <mcaimi@redhat.com>
 #
 
 # ansi colors

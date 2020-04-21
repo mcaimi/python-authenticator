@@ -4,7 +4,7 @@
 #
 #   Returns API version and information
 #
-#   v0.1 -- Marco Caimi <marco.caimi@fastweb.it>
+#   v0.1 -- Marco Caimi <mcaimi@redhat.com>
 #
 
 from datetime import datetime

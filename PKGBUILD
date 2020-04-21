@@ -1,4 +1,4 @@
-# Maintainer: Marco Caimi <marco.caimi@fastweb.it>
+# Maintainer: Marco Caimi <mcaimi@redhat.com>
 _pkgname=authenticator
 pkgname=python-${_pkgname}-git
 pkgver=0.1

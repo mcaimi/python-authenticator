@@ -1,9 +1,8 @@
 #!/usr/bin/env python
 # 
 # Utility API decorators
-# Save code, save time, save sanity :)
 #
-# v0.1 -- Marco Caimi <marco.caimi@fastweb.it>
+# v0.1 -- Marco Caimi <mcaimi@redhat.com>
 #
 from functools import wraps
 from flask import request
