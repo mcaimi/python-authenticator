@@ -48,8 +48,11 @@ else:
                                         'token_type': retpayload[account]['type']
                                         }
                                 ))
-            coderesults = postresults.json()['token']
-            print("[%s] Account %s (%s)" % ((coderesults['token']), account, coderesults['account']))
+            if postresults.status_code != 200:
+                print("[------] Account %s rejected: Token type %s not yet supported." % (account, retpayload[account].get('type')))
+            else:
+                coderesults = postresults.json()['token']
+                print("[%s] Account %s (%s)" % ((coderesults['token']), account, coderesults['account']))
     else:
         print("Received error code [%d]. Bailing Out." % results.status_code)
 
