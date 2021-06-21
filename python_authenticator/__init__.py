@@ -14,7 +14,6 @@ except ImportError:
             pass
 
 logging.getLogger(__name__).addHandler(NullHandler())
-sys.path.append("../")
 
 from python_authenticator.utils import account_params_singleton, config_params_singleton
 
