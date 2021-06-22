@@ -106,7 +106,8 @@ class TOTPMainWin(Gtk.Window):
                                             }
                                     ))
                 # update global info on tokens
-                self.tokenResults.append(postresults.json()['token'])
+                if "token" in postresults.json().keys():
+                    self.tokenResults.append(postresults.json().get("token"))
 
     # timeout event handler
     def on_timeout_event(self, user_data):
