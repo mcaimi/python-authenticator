@@ -16,7 +16,7 @@ except ImportError as e:
 # try to load the main window class
 try:
     from python_authenticator.gtk.mainwindow import TOTPMainWin
-except ImportError as e:
+except ImportError:
     print("PYTOKEN-GTK3: Cannot import MainWindow Class")
     sys.exit(-1)
 
