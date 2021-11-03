@@ -11,7 +11,7 @@ ROFI_MENU_CONTENTS+="---\n"
 while read token_line
 do
    ROFI_MENU_CONTENTS+="$token_line\n"
-done <<< "$(/usr/bin/env python /usr/local/bin/pytoken-rofi.py)"
+done <<< "$(/usr/bin/env python /usr/local/bin/pytoken-cli.py)"
 
 ROFI_MENU_CONTENTS+="---\n"
 ROFI_MENU_CONTENTS+="Select an entry to copy the Token Value to clipboard\n"

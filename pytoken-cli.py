@@ -8,7 +8,7 @@ from argparse import ArgumentParser
 import json
 
 try:
-    from requests import get,post
+    from requests import get, post
     from python_authenticator import config_params_singleton
     from python_authenticator.utils.ConsoleUtils import ANSIColors
 except ImportError as e:
@@ -20,10 +20,10 @@ arg_parser.add_argument("--list", "-l", action="store_true")
 options = arg_parser.parse_args()
 
 # connect to the API endpoint
-API_ENDPOINT="http://%s:%s" % (config_params_singleton.apiserver.listen_address,
-                                config_params_singleton.apiserver.listen_port)
-VERSION_PATH="/api/"
-TOKEN_PATH="/token/"
+API_ENDPOINT = "http://%s:%s" % (config_params_singleton.apiserver.listen_address,
+                                 config_params_singleton.apiserver.listen_port)
+VERSION_PATH = "/api/"
+TOKEN_PATH = "/token/"
 
 console = ANSIColors()
 
@@ -42,8 +42,8 @@ else:
         retpayload = results.json()['accounts']
         for account in retpayload.keys():
             postresults = post(API_ENDPOINT+TOKEN_PATH,
-                                headers={'Content-Type': 'application/json'},
-                                data=json.dumps({
+                               headers={'Content-Type': 'application/json'},
+                               data=json.dumps({
                                         'account_string': account,
                                         'token_type': retpayload[account]['type']
                                         }
@@ -55,4 +55,3 @@ else:
                 print("[%s] Account %s (%s)" % ((coderesults['token']), account, coderesults['account']))
     else:
         print("Received error code [%d]. Bailing Out." % results.status_code)
-
