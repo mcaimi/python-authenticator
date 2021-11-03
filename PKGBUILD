@@ -43,7 +43,7 @@ package() {
   install -D -m0644 "$srcdir/$_gitpath/assets/icons/amazon.png" "$pkgdir/usr/share/python-authenticator/assets/icons/amazon.png"
 
   # install clients
-  install -D -m0755 "$srcdir/$_gitpath/pytoken-rofi.py" "$pkgdir/usr/local/bin/pytoken-rofi.py"
+  install -D -m0755 "$srcdir/$_gitpath/pytoken-cli.py" "$pkgdir/usr/local/bin/pytoken-cli.py"
   install -D -m0755 "$srcdir/$_gitpath/pytoken-gui.py" "$pkgdir/usr/local/bin/pytoken-gui.py"
   install -D -m0755 "$srcdir/$_gitpath/totp.sh" "$pkgdir/usr/local/bin/totp.sh"
   install -D -m0755 "$srcdir/$_gitpath/run.sh" "$pkgdir/usr/local/bin/run.sh"
