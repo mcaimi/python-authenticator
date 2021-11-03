@@ -24,19 +24,22 @@ HTTP_501_NOT_IMPLEMENTED = 501
 
 # helper functions
 
-def is_informational_code(statuscode):
+
+def is_informational_code(statuscode: int) -> bool:
     return statuscode >= 100 and statuscode <= 199
 
-def is_success_code(statuscode):
+
+def is_success_code(statuscode: int) -> bool:
     return statuscode >= 200 and statuscode <= 299
 
-def is_redirection_code(statuscode):
+
+def is_redirection_code(statuscode: int) -> bool:
     return statuscode >= 300 and statuscode <= 399
 
-def is_client_error_code(statuscode):
+
+def is_client_error_code(statuscode: int) -> bool:
     return statuscode >= 400 and statuscode <= 499
 
-def is_server_error_code(statuscode):
+
+def is_server_error_code(statuscode: int) -> bool:
     return statuscode >= 500 and statuscode <= 599
-
-

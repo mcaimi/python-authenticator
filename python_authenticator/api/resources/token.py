@@ -14,9 +14,15 @@ import logging
 from flask_restful import Resource
 from flask import request
 from python_authenticator.api.constants import API_DESCRIPTION, API_VENDOR, API_VERSION, API_ENDPOINT
-from python_authenticator.api.status import HTTP_200_OK,HTTP_400_BAD_REQUEST
+from python_authenticator.api.status import HTTP_200_OK, HTTP_400_BAD_REQUEST
 from python_authenticator import account_params_singleton
 from python_authenticator import config_params
+
+# import OTP library
+try:
+    from rfc6238 import totp
+except ImportError as e:
+    raise ImportError("Cannot import required module: [%s]" % e)
 
 SUPPORTED_CIPHERS = {
             "sha1": hashlib.sha1,
@@ -24,12 +30,6 @@ SUPPORTED_CIPHERS = {
             "sha512": hashlib.sha512
         }
 
-# import OTP library
-import base64
-try:
-    from rfc6238 import totp
-except ImportError as e:
-    raise ImportError("Cannot import required module: [%s]" % e)
 
 # class that will respond to the GET method of the 'token' api command
 # http://endpoint:port/token/
@@ -103,5 +103,3 @@ class Token(Resource):
             return {'error': 'Malformed request: expected application/json'}, HTTP_400_BAD_REQUEST
 
         return TOKEN_RESPONSE_DICT, HTTP_200_OK
-
-

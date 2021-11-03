@@ -5,18 +5,18 @@
 #
 
 import logging
-import sys
 from importlib import import_module, invalidate_caches
 from flask_restful import Api
 from python_authenticator.utils.ParserMeta import ParamsParser
 
 from python_authenticator.config import api_routing_json_file_source as API_ROUTES
 
+
 # API router file parser
 class ApiRouterConfig(ParamsParser):
     def __init__(self):
         super().__init__(API_ROUTES)
-        self.root_objects = [ 'api' ]
+        self.root_objects = ['api']
         self.logger = logging.getLogger('ApiRouterConfig')
         self.logger.info("Loading api routes from %s." % self.config_file)
 
@@ -24,6 +24,7 @@ class ApiRouterConfig(ParamsParser):
     def parse(self):
         for json_root in self.root_objects:
             setattr(self, json_root, self.raw_json[json_root])
+
 
 # Class handling routing information for api calls
 class Router():
@@ -57,4 +58,3 @@ class Router():
                 self.logger.error(import_error)
             except Exception as generic_excp:
                 self.logger.error(generic_excp)
-

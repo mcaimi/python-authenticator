@@ -8,5 +8,5 @@ API_VERSION = "0.1"
 API_VENDOR = "RedHat"
 API_DESCRIPTION = "TOTP/HOTP Authenticator"
 ENDPOINT = "localhost"
-PORT=5100
-API_ENDPOINT = "http://%s:%s" % (ENDPOINT,PORT)
+PORT = 5100
+API_ENDPOINT = "http://%s:%s" % (ENDPOINT, PORT)
