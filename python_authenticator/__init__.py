@@ -3,7 +3,6 @@
 #   v0.1 -- Marco Caimi <mcaimi@redhat.com>
 #
 
-import sys
 import logging
 
 try:
@@ -22,5 +21,3 @@ account_params = account_params_singleton
 
 if config_params is not None:
     logging.basicConfig(filename=config_params.globals.log_file, level=logging.INFO)
-
-

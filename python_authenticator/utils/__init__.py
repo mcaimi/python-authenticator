@@ -1,8 +1,5 @@
 #!/usr/bin/env python
-import sys
-
 from .ConfigParsers import AccountsParamsSingleton, ConfigParamsSingleton, NoOpParser
-import logging
 
 config_params_singleton = None
 account_params_singleton = None
@@ -21,5 +18,3 @@ except Exception as e:
     config_params_singleton = None
     account_params_singleton = None
     api_doc_singleton = None
-
-
