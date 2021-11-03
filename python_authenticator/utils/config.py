@@ -27,4 +27,3 @@ accounts_json_file_source = {
                     'alternate': "accounts/accounts.json",
                     'local': "~/accounts/accounts.json",
                 }
-

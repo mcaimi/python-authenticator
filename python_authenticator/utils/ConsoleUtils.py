@@ -12,19 +12,19 @@ class ANSIColors(object):
         self.escapecode = '\033[%s;%sm'
 
         self.colors = {
-                'RED' : 1,
-                'GREEN' : 2,
-                'YELLOW' : 3,
-                'BLUE' : 4,
-                'PURPLE' : 5,
-                'CYAN' : 6,
-                'WHITE' : 7,
-                'BLACK' : 0
+                'RED': 1,
+                'GREEN': 2,
+                'YELLOW': 3,
+                'BLUE': 4,
+                'PURPLE': 5,
+                'CYAN': 6,
+                'WHITE': 7,
+                'BLACK': 0
                 }
 
         self.modifiers = {
-                'BRIGHT' : 1,
-                'NORMAL' : 0
+                'BRIGHT': 1,
+                'NORMAL': 0
                 }
 
         # build color codes hashes
@@ -36,9 +36,9 @@ class ANSIColors(object):
         for intensity in self.modifiers.keys():
             colorlist[intensity] = {}
             for color in self.colors.keys():
-                colorlist[intensity][color] = self.escapecode % (self.modifiers[intensity],30+self.colors[color])
+                colorlist[intensity][color] = self.escapecode % (self.modifiers[intensity], 30+self.colors[color])
         colorlist['RESET'] = '\033[0m'
-        # update ansi colorlist hash 
+        # update ansi colorlist hash
         self.ansi_escapes = colorlist
 
     # get colorlist
@@ -54,11 +54,11 @@ class ANSIColors(object):
 
     # output color text
     def write_color_code(self, text, mod="NORMAL", color="WHITE"):
-        return "%s%s%s" % (self.get_code_for_color(mod,color), text, self.ansi_escapes['RESET'])
+        return "%s%s%s" % (self.get_code_for_color(mod, color), text, self.ansi_escapes['RESET'])
 
     # print with color
     def print_with_color(self, text, mod="NORMAL", color="WHITE"):
-        print("%s%s%s" % (self.get_code_for_color(mod,color), text, self.ansi_escapes['RESET']))
+        print("%s%s%s" % (self.get_code_for_color(mod, color), text, self.ansi_escapes['RESET']))
 
     # print error message
     def print_error(self, text):
@@ -91,6 +91,3 @@ class ANSIColors(object):
     # return error message
     def normal(self, text):
         return "%s%s%s" % (self.get_code_for_color(mod='NORMAL', color='WHITE'), text, self.ansi_escapes['RESET'])
-
-
-

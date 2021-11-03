@@ -8,6 +8,7 @@ from os import path, environ
 import json
 from abc import ABCMeta, abstractmethod
 
+
 # inner component base class
 class InnerMeta(metaclass=ABCMeta):
     def __init__(self, params_base):
@@ -18,7 +19,8 @@ class InnerMeta(metaclass=ABCMeta):
     def parse():
         raise NotImplementedError("InnerMeta.parse() BASE CLASS -  You have to derive and implement your own specialized version.")
 
-# Parameters Handling Base Class 
+
+# Parameters Handling Base Class
 class ParamsParser(metaclass=ABCMeta):
     def __init__(self, PARAMS_FILENAME):
         try:
@@ -44,4 +46,3 @@ class ParamsParser(metaclass=ABCMeta):
     @abstractmethod
     def parse():
         raise NotImplementedError("ParamsParser.parse() BASE CLASS -  You have to derive and implement your own specialized version.")
-
