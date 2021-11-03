@@ -5,10 +5,7 @@
 #   v0.1 -- -Caimi Marco <mcaimi@redhat.com> -- Initial Implementation
 #
 
-import sys
-
 # project imports
-from python_authenticator import account_params
 from python_authenticator import config_params
 
 # restful sdk for python
@@ -31,6 +28,5 @@ except Exception as general_fault:
 # start api server
 if __name__ == "__main__":
     flask_server.run(host=config_params.apiserver.listen_address,
-                    port=config_params.apiserver.listen_port,
-                    debug=config_params.apiserver.debug)
-
+                     port=config_params.apiserver.listen_port,
+                     debug=config_params.apiserver.debug)
