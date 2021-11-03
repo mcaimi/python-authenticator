@@ -95,7 +95,7 @@ class Token(Resource):
                             'provisioning_uri': totp.build_uri(key, account.account, account.issuer, account.digest, digits=config_params.globals.digits, period=config_params.globals.period)
                             }
                 else:
-                    return {'error': 'Token type [%s] is currently not supported.' & token_type}, HTTP_400_BAD_REQUEST
+                    return {'error': 'Token type [%s] is currently not supported.' % token_type}, HTTP_400_BAD_REQUEST
             else:
                 return {'error': 'Account not found.'}, HTTP_200_OK
 
