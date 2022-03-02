@@ -1,5 +1,4 @@
 #!/usr/bin/env python
-# 
 # Utility API decorators
 #
 # v0.1 -- Marco Caimi <mcaimi@redhat.com>
@@ -7,7 +6,7 @@
 from functools import wraps
 from typing import Callable
 from flask import request
-from python_authenticator.api.status import HTTP_403_FORBIDDEN, HTTP_400_BAD_REQUEST
+from python_authenticator.api.status import HTTP_400_BAD_REQUEST
 
 MANDATORY_HEADERS = ['X-Auth-Token']
 

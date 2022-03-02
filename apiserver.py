@@ -1,18 +1,16 @@
 #!/usr/bin/env python
 #
-#   Python TOTP Token Generator API Server
 #
 #   v0.1 -- -Caimi Marco <mcaimi@redhat.com> -- Initial Implementation
 #
-
-# project imports
-from python_authenticator import config_params
+""" Python TOTP Token Generator API Server """
 
 # restful sdk for python
 from flask import Flask
 from flask_restful import Api
 
 # API resources
+from python_authenticator import config_params
 from python_authenticator.api.router import Router
 
 # initalize application

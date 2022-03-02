@@ -13,7 +13,6 @@ from time import time
 import logging
 from flask_restful import Resource
 from flask import request
-from python_authenticator.api.constants import API_DESCRIPTION, API_VENDOR, API_VERSION, API_ENDPOINT
 from python_authenticator.api.status import HTTP_200_OK, HTTP_400_BAD_REQUEST
 from python_authenticator import account_params_singleton
 from python_authenticator import config_params
@@ -82,7 +81,7 @@ class Token(Resource):
                     try:
                         digest_algo = SUPPORTED_CIPHERS.get(account.digest)
                         # compute token
-                        token_code = totp.TOTP(key, digest=digest_algo, encode_base32=account.base32)
+                        token_code = totp.totp(key, digest=digest_algo, encode_base32=account.base32)
                     except KeyError as e:
                         token_code = 0
 

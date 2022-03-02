@@ -4,6 +4,7 @@
 #
 
 import logging
+from python_authenticator.utils import account_params_singleton, config_params_singleton
 
 try:
     from logging import NullHandler
@@ -13,8 +14,6 @@ except ImportError:
             pass
 
 logging.getLogger(__name__).addHandler(NullHandler())
-
-from python_authenticator.utils import account_params_singleton, config_params_singleton
 
 config_params = config_params_singleton
 account_params = account_params_singleton
