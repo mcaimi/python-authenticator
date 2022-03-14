@@ -2,26 +2,26 @@
 #
 #   TOTP Token GUI widget element
 #
+''' Token Element Widget class '''
 
 try:
-    from rfc6238 import totp
     import qrcode
     import gi
     import os
     gi.require_version("Gtk", "3.0")
     gi.require_version("GdkPixbuf", "2.0")
     from gi.repository import Gtk, GdkPixbuf
-except ImportError as e:
-    raise e
+except ImportError as missing_imports:
+    raise ImportError(f'Error during library import [{missing_imports.__str__}]') from missing_imports
 
 ACCOUNT_TYPES = ['google', 'github', 'amazon', 'protonmail', 'mega']
-ASSET_ICONS_PATHS = {
-            "relative": "./assets/icons/",
-            "system_wide": "/usr/share/python-authenticator/assets/icons/"
-        }
+ASSET_ICONS_PATHS = {"relative": "./assets/icons/",
+                     "system_wide": "/usr/share/python-authenticator/assets/icons/"}
 
-# Custom TOTP widget.
+
 class TokenElement(Gtk.EventBox):
+    ''' Custom Token Element Widget '''
+
     def __init__(self, current_totp):
         # setup token provisioning uri
         self.current_totp = current_totp
@@ -49,9 +49,9 @@ class TokenElement(Gtk.EventBox):
 
     def set_type(self, account_type):
         # load account icon
-        if account_type in ACCOUNT_TYPES: # we have custom icon
+        if account_type in ACCOUNT_TYPES:  # we have custom icon
             self.icon_pixmap = Gtk.Image.new_from_file(self.asset_dir + account_type + ".png")
-        else: # load default icon
+        else:  # load default icon
             self.icon_pixmap = Gtk.Image.new_from_file(self.asset_dir + "default.png")
 
         self.hbox.pack_end(self.icon_pixmap, False, False, 0)
@@ -74,9 +74,9 @@ class TokenElement(Gtk.EventBox):
         # build a GdkPixbuf object from the qrcode byte data...
         pixbuf = GdkPixbuf.Pixbuf.new_from_data(qrcode_image.tobytes(), GdkPixbuf.Colorspace.RGB, False, 8, w, h, w * 3)
         # create a Gtk Image object and load the pixbuf inside it...
-        qrImage = Gtk.Image()
-        qrImage.set_from_pixbuf(pixbuf)
-        qrImage.show()
+        qr_image = Gtk.Image()
+        qr_image.set_from_pixbuf(pixbuf)
+        qr_image.show()
 
         # create a small label...
         label = Gtk.Label()
@@ -88,7 +88,7 @@ class TokenElement(Gtk.EventBox):
         # create a Popug Gtk.Window and display the image to the user.
         popup_win = Gtk.Dialog()
         popup_win.vbox.pack_start(label, False, False, 0)
-        popup_win.vbox.pack_start(qrImage, False, False, 0)
-        popup_win.add_buttons(Gtk.STOCK_YES,1)
+        popup_win.vbox.pack_start(qr_image, False, False, 0)
+        popup_win.add_buttons(Gtk.STOCK_YES, 1)
         popup_win.run()
         popup_win.destroy()
