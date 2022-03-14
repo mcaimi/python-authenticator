@@ -4,13 +4,15 @@
 #   v0.1 - Marco Caimi <mcaimi@redhat.com>
 #
 # global imports
+""" Python Authenticator GUI """
+
 import sys
 try:
     import gi
     gi.require_version("Gtk", "3.0")
     from gi.repository import Gtk
 except ImportError as e:
-    print("PTOKEN-GTK3, Error importing module [%s]" % e)
+    print(f"PYOKEN-GTK3, Error importing module [{e}]")
     sys.exit(-1)
 
 # try to load the main window class

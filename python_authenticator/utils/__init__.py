@@ -1,20 +1,19 @@
 #!/usr/bin/env python
-from .ConfigParsers import AccountsParamsSingleton, ConfigParamsSingleton, NoOpParser
+# pylint: disable=W0703
+""" Utility module for python_authenticator """
 
-config_params_singleton = None
-account_params_singleton = None
-api_doc_singleton = None
+from .config_parsers import AccountsParamsSingleton, ConfigParamsSingleton, NoOpParser
 
 # Load and parse service parameters from json file
 try:
-    config_params_singleton = ConfigParamsSingleton()
-    config_params_singleton.parse()
-    account_params_singleton = AccountsParamsSingleton()
-    account_params_singleton.parse()
-    api_doc_singleton = NoOpParser()
-    api_doc_singleton.parse()
+    CONFIG_PARAMS_SINGLETON = ConfigParamsSingleton()
+    CONFIG_PARAMS_SINGLETON.parse()
+    ACCOUNT_PARAMS_SINGLETON = AccountsParamsSingleton()
+    ACCOUNT_PARAMS_SINGLETON.parse()
+    API_DOC_SINGLETON = NoOpParser()
+    API_DOC_SINGLETON.parse()
 except Exception as e:
-    print("libs.utils.__init__(): [%s]" % e.__str__())
-    config_params_singleton = None
-    account_params_singleton = None
-    api_doc_singleton = None
+    print(f"libs.utils.__init__(): [{e.__str__()}]")
+    CONFIG_PARAMS_SINGLETON = None
+    ACCOUNT_PARAMS_SINGLETON = None
+    API_DOC_SINGLETON = None

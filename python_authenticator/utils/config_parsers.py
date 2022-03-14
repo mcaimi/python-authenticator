@@ -1,21 +1,26 @@
 #!/usr/bin/env python
-#
-# Python common utils for dealing with configuration files
+# pylint: disable=R0903
+# pylint: disable=C0115
 #
 # v0.1 - Initial implementation - Marco Caimi <mcaimi@redhat.com>
 #
 
+''' Common utils for dealing with configuration files '''
+
 from python_authenticator.config import parameters_json_file_source, api_spec_json_file_source, accounts_json_file_source
-from python_authenticator.utils.ParserMeta import ParamsParser, InnerMeta
+from python_authenticator.utils.parser_meta import ParamsParser, InnerMeta
 
 
-# Custom parsers for parameter files
 class AccountParams(ParamsParser):
+    """ Custom parser for account parameter config files """
+
     def __init__(self):
         super().__init__(accounts_json_file_source)
         self.service_classes = ['accounts']
 
     class InnerComponent(InnerMeta):
+        """ Inner Component Implementation """
+
         def __init__(self, properties_hash):
             super().__init__(properties_hash)
             self.properties = properties_hash
@@ -23,6 +28,8 @@ class AccountParams(ParamsParser):
             self.parse()
 
         class JsonConfig(InnerMeta):
+            """ JSON Handler Component Implementation """
+
             def __init__(self, properties_hash):
                 super().__init__(properties_hash)
                 self.properties = properties_hash
@@ -37,6 +44,7 @@ class AccountParams(ParamsParser):
                 self.classes[key] = self.JsonConfig(self.properties[key])
 
         def keys(self):
+            ''' return keys representing configuration parameters '''
             return self.classes.keys()
 
     def parse(self):
@@ -55,7 +63,7 @@ class ConfigParams(ParamsParser):
         def __init__(self, properties_hash):
             super().__init__(properties_hash)
             self.properties = properties_hash
-            self.classes = dict()
+            self.classes = {}
             self.parse()
 
         def parse(self):
@@ -102,12 +110,12 @@ class NoOpParser(ParamsParser):
 
     def __init__(self):
         if NoOpParser.__instance is not None:
-            return NoOpParser.__instance
+            raise RuntimeError("There can only be one instance of this class.")
 
         super().__init__(api_spec_json_file_source)
+        self.json_data = None
 
         NoOpParser.__instance = self
 
     def parse(self):
         self.json_data = self.raw_json
-

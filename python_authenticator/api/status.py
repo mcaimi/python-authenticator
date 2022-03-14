@@ -5,7 +5,7 @@
 # v0.1 -- Marco Caimi <mcaimi@redhat.com>
 #
 
-# HTTP Status Codes
+""" HTTP Status Codes """
 
 HTTP_100_CONTINUE = 100
 HTTP_200_OK = 200
@@ -22,24 +22,27 @@ HTTP_405_METHOD_NOT_ALLOWED = 405
 HTTP_500_SERVER_ERROR = 500
 HTTP_501_NOT_IMPLEMENTED = 501
 
-# helper functions
-
 
 def is_informational_code(statuscode: int) -> bool:
-    return statuscode >= 100 and statuscode <= 199
+    ''' response contains an informational code '''
+    return 100 <= statuscode <= 199
 
 
 def is_success_code(statuscode: int) -> bool:
-    return statuscode >= 200 and statuscode <= 299
+    ''' response contains an successful code '''
+    return 200 <= statuscode <= 299
 
 
 def is_redirection_code(statuscode: int) -> bool:
-    return statuscode >= 300 and statuscode <= 399
+    ''' response contains a redirection code '''
+    return 300 <= statuscode <= 399
 
 
 def is_client_error_code(statuscode: int) -> bool:
-    return statuscode >= 400 and statuscode <= 499
+    ''' response contains a client error code '''
+    return 400 <= statuscode <= 499
 
 
 def is_server_error_code(statuscode: int) -> bool:
-    return statuscode >= 500 and statuscode <= 599
+    ''' response contains a server error code '''
+    return 500 <= statuscode <= 599
