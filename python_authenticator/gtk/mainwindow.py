@@ -24,7 +24,7 @@ except ImportError as missing_imports:
 DEF_WIDTH = 300
 DEF_HEIGHT = 300
 BORDER_SIZE = 5
-PROGRESSBAR_TIMEOUT = 60
+PROGRESSBAR_TIMEOUT = 30
 
 # MARKUP TEMPLATE
 PANGO_MARKUP_TEMPLATE = "<markup><span foreground='blue' font_desc='Iosevka Term Medium 15'>%s</span>\n<span foreground='black' font_desc='Noto Sans UI 10'>%s</span></markup>"
@@ -79,7 +79,7 @@ class TOTPMainWin(Gtk.Window):
         self.progress_bar = Gtk.ProgressBar()
         self.progress_bar.set_text("TOTP Timeout")
         self.progress_bar.props.show_text = True
-        self.timeout_id = GObject.timeout_add(60000 / (PROGRESSBAR_TIMEOUT * 10), self.on_timeout_event, None)
+        self.timeout_id = GObject.timeout_add(30000 / (PROGRESSBAR_TIMEOUT * 10), self.on_timeout_event, None)
         widget_box.add(self.progress_bar)
 
         # Text Area
