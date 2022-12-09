@@ -18,7 +18,7 @@ except ImportError as e:
     print(f"Cannot Import Library Classes: [{e}]")
     sys.exit(-1)
 
-arg_parser = ArgumentParser(prog="pytoken.py", epilog="Encrypt Everything!")
+arg_parser = ArgumentParser(prog="pytoken.py", epilog="API-Driven Version")
 arg_parser.add_argument("--list", "-l", action="store_true")
 options = arg_parser.parse_args()
 
